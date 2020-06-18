@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.parser.Parser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,7 +25,7 @@ public class DefaultCrawler implements Crawler{
 			String nextUrl = urls.get(i);
 			Document targetDocument = null;
 			try {
-				targetDocument = Jsoup.connect(nextUrl).get();
+				targetDocument = Jsoup.connect(nextUrl).ignoreContentType(true).parser(Parser.xmlParser()).get();
 			} catch (IOException e) {
 				logger.error(e.getMessage(),e);
 				return;

@@ -17,7 +17,7 @@ public @interface ScrapperTask {
 	public String url() default "";
 	public String query() default "";
 	public long timeout() default 0;
-	public long interval() default 0;
+	public long interval() default 1;
 	public int rpm() default 0;
 	public String crawler() default "com.lucsbelt.scrap.lib.crawler.DefaultCrawler";
 
